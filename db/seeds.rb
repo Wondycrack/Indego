@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all if Rails.env.development?
 Service.destroy_all if Rails.env.development?
+Booking.destroy_all if Rails.env.development?
 
 names = []
 30.times do
@@ -34,12 +35,20 @@ names.each do |name|
     project_type: Service::PROJECT_TYPE.sample  
   )
 
+  b =  Booking.create!(
+    start_date: DateTime.new(2009,9,14,8),
+    end_date: DateTime.new(2009,9,16,9),
+    user: u,
+    service: s,
+  )
+
+  p "Created #{Booking.count}"
   p "Created #{u.name}"
   p "Created #{s.description}"
 
 end
 
-# Service.destroy_all if Rails.env.development?
+# Booking.destroy_all if Rails.env.development?
 # 20.times do
 #   s =  Service.create!(description: Faker::Hipster.word,
 #                             rate: rand(200..5000),

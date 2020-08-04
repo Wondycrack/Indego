@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :services, dependent: :destroy
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   validates :name, uniqueness: true, presence: true
   validates :speciality, inclusion: {in: SPECIALITIES}
 end
