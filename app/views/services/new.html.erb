@@ -1,10 +1,21 @@
-<h1>Add a service</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Add a service</h1>
+
+      <%= simple_form_for (@service) do |f| %>
+        <%= f.input :description %>
+        <%= f.input :rate %>
+        <%= f.input :speciality %>
+        <%= f.input :project_type %>
+        <%= f.submit "Add service"%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-<%= simple_form_for (@service) do |f| %>
-  <%= f.input :description %>
-  <%= f.input :rate %>
-  <%= f.input :speciality %>
-  <%= f.input :project_type %>
-  <%= f.submit "Add service"%>
-<% end %>
+
+
+
+
