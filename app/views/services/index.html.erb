@@ -1,0 +1,21 @@
+
+<h1>Services</h1>
+
+<%= link_to 'Add service', new_service_path %>
+
+<% @services.each do |service| %>
+  <h2><%= service.description .capitalize%></h2>
+  <p>Rate: <%= service.rate %></p>
+  <p>Style:<%= service.speciality %></p>
+  <p>Designer: <%= service.user.name %> <%= link_to 'view profile', profile_path(current_user) %></p>
+  <p>Type:<%= service.project_type %></p>
+  <p><%= link_to 'Book', new_service_booking_path(service.id)  %></p>
+ <% end %>
+
+
+
+   <!--  description: Faker::Hipster.word,
+    rate: rand(200..5000),
+    user: u,
+    speciality:  Service::SPECIALITIES.sample,
+    project_type: Service::PROJECT_TYPE.sample -->
