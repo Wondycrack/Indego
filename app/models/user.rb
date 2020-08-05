@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   has_many :services, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  validates :name, uniqueness: true, presence: true
-  validates :speciality, inclusion: {in: SPECIALITIES}
+  # validates :name, uniqueness: true, presence: true
+  # validates :speciality, inclusion: {in: SPECIALITIES}
 end
