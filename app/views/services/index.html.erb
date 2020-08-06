@@ -1,6 +1,17 @@
 <h1 class="text-center my-4">Select A Service</h1>
-<%= link_to 'Add service', new_service_path %>
+
 <div class="container">
+  <%= link_to 'Add service', new_service_path %>
+
+  <%= form_tag services_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a style or designer"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="row py-4">
     <% @services.each do |service| %>
       <div class="col-xs-12 col-sm-6 col-lg-4 py-4">
@@ -9,6 +20,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= service.speciality %></h5>
             <p class="card-text"><%= service.description %>.</p>
+            <p class="card-text"><%= service.user.name %>.</p>
             <%= link_to "book",service_path(service),class:"btn btn-primary"%>
           </div>
         </div>

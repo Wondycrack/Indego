@@ -1,7 +1,11 @@
 class ServicesController < ApplicationController
 
   def index
-    @services = Service.all
+    if params[:query].present?
+      @services = Service.search_by_speciality_description_user(params[:query])
+    else
+      @services = Service.all
+    end
   end
 
   def new
