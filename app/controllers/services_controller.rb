@@ -32,6 +32,10 @@ class ServicesController < ApplicationController
     redirect_to @service
     end
 
+    def show
+      @service = Service.find(params[:id])
+
+    end
 
     def destroy
     @service.destroy
@@ -39,7 +43,7 @@ class ServicesController < ApplicationController
     end
 
   private
-  
+
   def service_params
     params.require(:service).permit(:description, :rate, :speciality, :project_type, :user)
   end
