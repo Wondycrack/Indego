@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  get 'services/:name', to: 'services#profile', as: 'profile'
+  # get 'services/:name', to: 'services#profile', as: 'profile'
 
   resources :bookings, only: [:index]
 

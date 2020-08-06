@@ -1,16 +1,16 @@
-<h1>Services</h1>
+<h1 class="text-center my-4">Select A Service</h1>
 <%= link_to 'Add service', new_service_path %>
 <div class="container">
   <div class="row py-4">
     <% @services.each do |service| %>
       <div class="col-xs-12 col-sm-6 col-lg-4 py-4">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpIRrKEVNjfhqLXlQ8R43elzVLSdiYkZiMfQ&usqp=CAU)">
-          <h2><%= service.description .capitalize%></h2>
-          <p>Rate: <%= service.rate %></p>
-          <p>Style:<%= service.speciality %></p>
-          <p>Designer: <%= service.user.name %> <%= link_to 'view profile', profile_path(current_user) %></p>
-          <p>Type:<%= service.project_type %></p>
-          <p><%= link_to 'Book', new_service_booking_path(service.id)  %></p>
+        <div class="card" style="width: 18rem;">
+          <%= image_tag "Interior Design.jpeg",class:"card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= service.speciality %></h5>
+            <p class="card-text"><%= service.description %>.</p>
+            <%= link_to "book",service_path(service),class:"btn btn-primary"%>
+          </div>
         </div>
       </div>
     <% end %>
