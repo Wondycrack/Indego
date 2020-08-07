@@ -2,7 +2,7 @@ class ServicesController < ApplicationController
 
   def index
     if params[:query].present?
-      @services = Service.search_by_speciality_description_user(params[:query])
+      @services = Service.search_by_speciality_description_project_type_user(params[:query])
     else
       @services = Service.all
     end
@@ -22,7 +22,7 @@ class ServicesController < ApplicationController
     else
         render :new
     end
-    end
+  end
 
     def edit
     # form with service info filled out

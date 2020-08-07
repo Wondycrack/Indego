@@ -19,9 +19,12 @@
           <%= image_tag "Interior Design.jpeg",class:"card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= service.speciality %></h5>
-            <p class="card-text"><%= service.description %>.</p>
-            <p class="card-text"><%= service.user.name %>.</p>
-            <%= link_to "book",service_path(service),class:"btn btn-primary"%>
+            <p class="card-text">description: <%= service.description %>.</p>
+            <p class="card-text">project type: <%= service.project_type %>.</p>
+            <p class="card-text">designer: <%= service.user.name %>.</p>
+            <%= link_to "book", new_service_booking_path(service),class:"btn btn-primary"%>
+            <!-- /services/:service_id/bookings/new -->
+             <!-- new_service_booking -->
           </div>
         </div>
       </div>

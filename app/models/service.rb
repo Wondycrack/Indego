@@ -8,8 +8,8 @@ class Service < ApplicationRecord
   validates :project_type, inclusion: {in: PROJECT_TYPE}
 
   include PgSearch::Model
-  pg_search_scope :search_by_speciality_description_user,
-    against: [:speciality, :description],
+  pg_search_scope :search_by_speciality_description_project_type_user,
+    against: [:speciality, :description, :project_type],
     associated_against: {
       user: [:name]
     },
