@@ -4,13 +4,18 @@
   <%= link_to 'Add service', new_service_path,class: "btn btn-primary"  %>
 
   <%= form_tag services_path, method: :get do %>
+  
+  <div class="search-form-control form-group">
+
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control string-required",
       placeholder: "Find a style or designer"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
   <% end %>
+
 
   <div class="row py-4">
     <% @services.each do |service| %>
@@ -29,7 +34,7 @@
     <% end %>
   </div>
 </div>
-
+ <%= render 'shared/background' %>
 
    <!--  description: Faker::Hipster.word,
     rate: rand(200..5000),
