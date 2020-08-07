@@ -38,6 +38,7 @@ class ServicesController < ApplicationController
 
     def show
       @service = Service.find(params[:id])
+      @service.user = current_user
 
     end
 
