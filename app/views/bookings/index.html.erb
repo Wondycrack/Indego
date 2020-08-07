@@ -1,1 +1,7 @@
-index.html.erb
+<h1>All bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <p><h3>Booked by: <%= booking.user.name %> </h3></p>
+  <p>Service ID: <%= booking.service.id %> </p>
+  <p>Designer: <%= booking.service.user.name %> </p>
+<% end %>
