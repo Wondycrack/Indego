@@ -1,7 +1,11 @@
 class ServicesController < ApplicationController
 
   def index
-    @services = Service.all
+    if params[:query].present?
+      @services = Service.search_by_speciality_description_project_type_user(params[:query])
+    else
+      @services = Service.all
+    end
   end
 
   def new
@@ -18,7 +22,7 @@ class ServicesController < ApplicationController
     else
         render :new
     end
-    end
+  end
 
     def edit
     # form with service info filled out
@@ -38,6 +42,7 @@ class ServicesController < ApplicationController
     end
 
     def destroy
+    @service = Service.find(params[:id])
     @service.destroy
     redirect_to services_path
     end
