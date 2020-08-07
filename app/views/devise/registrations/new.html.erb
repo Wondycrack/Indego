@@ -7,6 +7,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+
           <%= f.input :email,
                       required: true,
                       autofocus: true,
@@ -41,11 +42,9 @@
         
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up"%>
+      <%= f.button :submit, "Sign up",class:"btn btn-primary" %>
     </div>
   <% end %>
-</div>
-</div>
 </div>
 
 <%= render "devise/shared/links" %>

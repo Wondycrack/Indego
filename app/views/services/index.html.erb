@@ -1,7 +1,7 @@
 <h1 class="text-center my-4">Select A Service</h1>
 
 <div class="container">
-  <%= link_to 'Add service', new_service_path %>
+  <%= link_to 'Add service', new_service_path,class: "btn btn-primary"  %>
 
   <%= form_tag services_path, method: :get do %>
     <%= text_field_tag :query,
@@ -16,15 +16,13 @@
     <% @services.each do |service| %>
       <div class="col-xs-12 col-sm-6 col-lg-4 py-4">
         <div class="card" style="width: 18rem;">
-          <%= image_tag "Interior Design.jpeg",class:"card-img-top" %>
+          <%= image_tag "Interior Design.jpg",class:"card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= service.speciality %></h5>
-            <p class="card-text">description: <%= service.description %>.</p>
-            <p class="card-text">project type: <%= service.project_type %>.</p>
-            <p class="card-text">designer: <%= service.user.name %>.</p>
-            <%= link_to "book", new_service_booking_path(service),class:"btn btn-primary"%>
-            <!-- /services/:service_id/bookings/new -->
-             <!-- new_service_booking -->
+            <p class="card-text"><%= service.description %>.</p>
+            <p class="card-text"><%= service.user.name %>.</p>
+            <%= link_to "book",service_path(service),class:"btn btn-primary"%>
+            <%= link_to "Delete", service_path(service.id), data: {confirm: "Are you sure?" }, method: :delete %>
           </div>
         </div>
       </div>
