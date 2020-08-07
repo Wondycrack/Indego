@@ -1,7 +1,17 @@
+<div class="service-banner" style="background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url(https://freshome.com/wp-content/uploads/2017/07/contrast-living-room-1.jpg);">
 <h1>All bookings</h1>
 
+<div class="row py-4">
 <% @bookings.each do |booking| %>
-  <p><h3>Booked by: <%= booking.user.name %> </h3></p>
-  <p>Service ID: <%= booking.service.id %> </p>
-  <p>Designer: <%= booking.service.user.name %> </p>
-<% end %>
+  <div class="col-xs-12 col-sm-6 col-lg-4 py-4">
+  <div class="card" style="width: 18rem;">
+          <%= image_tag "Designer#{rand(1..14)}.jpg",class:"card-img-top card-person" %>
+          <div class="card-body">
+    <p><h3>Booked by: <%= booking.user.name %> </h3></p>
+    <p>Service ID: <%= booking.service.id %> </p>
+    <p>Designer: <%= booking.service.user.name %> </p>
+    </div>
+    </div>
+    </div>
+  <% end %>
+</div>
