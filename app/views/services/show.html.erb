@@ -4,27 +4,23 @@
 <div class="card mb-3" style="max-width: 1400px;">
   <div class="row no-gutters">
     <div class="col-md-4" style= "text-align: center;">
-      <%= image_tag "Designer11.jpg",class:"card-img" %>
-      <%= link_to "Book",service_path(@service),class:"btn btn-primary"%>
+      <%= image_tag "Marie LaVeau.jpeg",class:"card-img" %>
+      <%= link_to "Book",new_service_booking_path(@service),class:"btn btn-primary"%>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Marie LaVeau</h5>
+        <h5 class="card-title"><%= @service.user.name.capitalize %></h5>
         <p class="card-text ">
 
-        <p>Experience: 10 years</p>
+        <p>Rate: <%= @service.rate %></p>
 
-        <p>Rate: $500</p>
+        <p>Speciality: <%= @service.speciality %> </p>
 
-        <p>Specialty: Industial, Rustic, Scandinavian, Bohemian</p>
+        <p>Project: <%= @service.project_type %></p>
 
-        <p>Project: Individual Rooms</p>
+        <p>Project Count: <%= @service.user.project_count %></p>
 
-        <p>Project Count: 100</p>
-
-        <p>Bio: I hail from California and I am a gradute of The New School. I have been an interior designer for
-        10 years and have worked with some of the biggest names in the indesign. I belive in designing from
-        the heart to create the ultimate design experience.</p>
+        <p>Bio: <%= @service.user.bio %></p>
 
         <p class="card-text"><small class="text-muted"></small></p>
       </div>
@@ -48,5 +44,3 @@
   </div>
 </div>
 </div>
-</div>
-
