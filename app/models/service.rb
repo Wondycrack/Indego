@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
-  SPECIALITIES = %W(bohemian minimalist modern industrial)
-  PROJECT_TYPE = %W(home bedroom kitchen restroom livingroom)
+  SPECIALITIES = %W(bohemian minimalist modern industrial rustic scandinavian eclectic farmhouse asian)
+  PROJECT_TYPE = %W(home bedroom kitchen restroom livingroom bathroom basement)
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :description, presence: true
