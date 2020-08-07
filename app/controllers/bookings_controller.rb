@@ -5,10 +5,9 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @user = current_user
-    raise
   end
 
-  
+
   def new
     @booking = Booking.new
     @service = Service.find(params[:service_id])
