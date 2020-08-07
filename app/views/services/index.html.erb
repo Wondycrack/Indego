@@ -22,7 +22,7 @@
             <p class="card-text"><%= service.description %>.</p>
             <p class="card-text">Designer: <%= service.user.name %>.</p>
             <p class="card-text">Project type: <%= service.project_type %>.</p>
-            <%= link_to "book", new_service_booking_path(service),class:"btn btn-primary"%>
+            <%= link_to "book", service_path(service),class:"btn btn-primary"%>
             <%= link_to "Delete", service_path(service.id), data: {confirm: "Are you sure?" }, method: :delete %>
           </div>
         </div>

@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
   # validates :start_date, presence: true
   # , availability: true
   validate :end_date_after_start_date
-  validates :service, uniqueness: {scope: :service}
+  # validates :service, uniqueness: {scope: :user}
 
   private
 
