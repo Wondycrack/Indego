@@ -19,10 +19,12 @@
           <%= image_tag "Interior Design.jpg",class:"card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= service.speciality.capitalize %></h5>
+
             <p class="card-text"><%= service.description.capitalize %>.</p>
             <p class="card-text">Designer: <%= service.user.name.capitalize %>.</p>
             <p class="card-text">Project type: <%= service.project_type.capitalize %>.</p>
             <%= link_to "book",service_path(service),class:"btn btn-primary"%>
+    
             <%= link_to "Delete", service_path(service.id), data: {confirm: "Are you sure?" }, method: :delete %>
           </div>
         </div>
