@@ -1,7 +1,14 @@
 class BookingsController < ApplicationController
 
-  # before_action :booking_params, only: [:new, :create]
 
+  # before_action , only: [:new, :create]
+  def index
+    @bookings = Booking.all
+    @user = current_user
+    raise
+  end
+
+  
   def new
     @booking = Booking.new
     @service = Service.find(params[:service_id])
@@ -10,18 +17,23 @@ class BookingsController < ApplicationController
 
   def create
 
-    # @service = Service.find(params[:service_id])
-    # start = Time.now
-    # @booking = Booking.new(start_date: Time.now, end_date: Time.now, user_id: current_user.id, service_id: @service_id)
-    # @user = current_user
-    # puts @booking
+    # service = Service.find(params[:service_id])
+    start = Time.now
+    @booking = Booking.new(start_date: Time.now, end_date: Time.now, user_id: current_user.id, service_id: params[:service_id])
+    @user = current_user
+    puts @booking
 
-    # if @booking.save
-    #   puts "booking.saveeeee"
-    #     redirect_to index_path
-    # else
-    #     render :new
-    # end
+    if @booking.save
+      puts "booking.saveeeee"
+        redirect_to bookings_path(@booking)
+    else
+        render :new
+    end
+
+  end
+
+  def show
+
   end
 
   # def booking_params
