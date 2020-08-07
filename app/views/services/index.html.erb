@@ -1,3 +1,4 @@
+<div class="service-banner" style="background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url(https://freshome.com/wp-content/uploads/2017/07/contrast-living-room-1.jpg);">
 <h1 class="text-center my-4">Select A Service</h1>
 
 <div class="container">
@@ -20,13 +21,17 @@
   <div class="row py-4">
     <% @services.each do |service| %>
       <div class="col-xs-12 col-sm-6 col-lg-4 py-4">
-        <div class="card" style="width: 18rem;"
-          <%= image_tag "Interior Design.jpg",class:"card-img-top" %>
+        <div class="card" style="width: 18rem;">
+          <%= image_tag "Designer#{rand(1..14)}.jpg",class:"card-img-top card-person" %>
           <div class="card-body">
-            <h5 class="card-title"><%= service.speciality %></h5>
+
+            <h5 class="card-title"><%= service.speciality.capitalize %></h5>
+
             <p class="card-text"><%= service.description %>.</p>
-            <p class="card-text"><%= service.user.name %>.</p>
-            <%= link_to "book",service_path(service),class:"btn btn-primary"%>
+            <p class="card-text">Designer: <%= service.user.name %>.</p>
+            <p class="card-text">Project type: <%= service.project_type %>.</p>
+            <%= link_to "book", service_path(service),class:"btn btn-primary"%>
+
             <%= link_to "Delete", service_path(service.id), data: {confirm: "Are you sure?" }, method: :delete %>
           </div>
         </div>
