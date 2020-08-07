@@ -1,11 +1,20 @@
-<h1>Confirm booking</h1>
+<div class="card mb-3" style="max-width: 1400px;">
+  <div class="row no-gutters">
+    <div class="col-md-4" style= "text-align: center;">
+      <%= image_tag "Marie LaVeau.jpeg",class:"card-img" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= @service.user.name.capitalize %></h5>
+        <p class="card-text ">
 
+          <h2><%= @service.speciality %></h2>
+          <p><%= @service.description %></p>
+          <p>rate: <%= @service.rate %></p>
+          <p>designer: <%= @service.user.name %></p>
+          <%= link_to 'Confirm', service_bookings_path(@service), class:"btn btn-primary" %>
+          </div>
 
-<h2><%= @service.speciality %></h2>
-<p><%= @service.description %></p>
-<p>rate: <%= @service.rate %></p>
-<p>designer: <%= @service.user.name %></p>
-<%= link_to 'Confirm', service_bookings_path(@service), class:"btn btn-primary" %>
 
 
 
